@@ -7,11 +7,11 @@ class Curso(models.Model):
     camada = models.IntegerField()
 
 class Alumno(models.Model):
-    name = models.CharField()
+    name = models.CharField(max_length=20)
     born = models.DateField()
     email = models.EmailField()
 
 class Profesor(models.Model):
-    name = models.CharField()
+    name = models.CharField(max_length=20)
     born = models.DateField()
     email = models.EmailField()
