@@ -22,6 +22,6 @@ from App1 import views
 urlpatterns = [
     path('fecha/', views.fechaa),
     path('azul/', views.azul),
-    path('plantilla/', views.start_boostrap),
+    path('', views.start_boostrap),
     path('form/', views.formulario),
 ]
