@@ -5,6 +5,7 @@ from django.template import loader, Template,Context
 from datetime import datetime
 from App1.models import Curso
 from App1.forms import Cursoformulario
+from App1.models import Profesor
 
 # Create your views here.
 
@@ -33,3 +34,11 @@ def formulario(request):
     else:
         miform = Cursoformulario()
         return render(request,'App1/formulario.html',{"miform":miform})
+
+def profesores(request):
+    profesors = Profesor.objects.all()
+
+    context_dict = {
+        'profesors': profesors
+    }
+    return render(request, 'App1/profesores.html',context_dict)

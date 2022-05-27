@@ -22,6 +22,7 @@ from App1 import views
 urlpatterns = [
     path('fecha/', views.fechaa),
     path('azul/', views.azul),
-    path('', views.start_boostrap),
+    path('', views.start_boostrap, name='Home'),
     path('form/', views.formulario),
+    path('profesores/', views.profesores, name ='Profesores'),
 ]
