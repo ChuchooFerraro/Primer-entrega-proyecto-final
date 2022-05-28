@@ -6,7 +6,7 @@ from datetime import datetime
 from App1.models import Curso
 from App1.models import Profesor
 from App1.models import Alumno
-from App1.forms import Profesor_form, Alumno_form
+from App1.forms import Profesor_form, Alumno_form, Curso_form
 
 # Create your views here.
 
@@ -112,5 +112,39 @@ def alumno_forms_django(request):
     template_name='App1/alumnos_form.html'
     )
 
+def curso_forms_django(request):
+    if request.method == 'POST':
+
+        curso_form = Curso_form(request.POST)
+        
+
+        if curso_form.is_valid():
+            data = curso_form.cleaned_data
+
+            curso = Curso(
+                curso=data["curso"],
+                camada=data['camada'],
+            )
+            curso.save()
+
+            cursos = Curso.objects.all()
+            context_dict = {
+                'cursos': cursos
+            }
+            return render(
+                request=request,
+                context=context_dict,
+                template_name="App1/cursos.html"
+            )
+
+    curso_form = Curso_form(request.POST)
+    context_dict = {
+        'curso_form': curso_form
+    }
+    return render(
+    request=request,
+    context=context_dict,
+    template_name='App1/cursos_form.html'
+    )
 
     #-------------------------------------BUSQUEDAS------------------------------------------------------------
