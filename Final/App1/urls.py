@@ -25,4 +25,5 @@ urlpatterns = [
     path('', views.start_boostrap, name='Home'),
     path('form/', views.formulario),
     path('profesores/', views.profesores, name ='Profesores'),
+    path('cursos/', views.cursos, name ='Cursos'),
 ]

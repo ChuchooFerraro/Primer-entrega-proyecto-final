@@ -6,6 +6,7 @@ from datetime import datetime
 from App1.models import Curso
 from App1.forms import Cursoformulario
 from App1.models import Profesor
+from App1.models import Alumno
 
 # Create your views here.
 
@@ -42,3 +43,11 @@ def profesores(request):
         'profesors': profesors
     }
     return render(request, 'App1/profesores.html',context_dict)
+
+def cursos(request):
+    cursos = Curso.objects.all()
+    
+    context_dict = {
+        'cursos': cursos
+    }
+    return render(request, 'App1/cursos.html',context_dict)
