@@ -6,7 +6,7 @@ from datetime import datetime
 from App1.models import Curso
 from App1.models import Profesor
 from App1.models import Alumno
-from App1.forms import Profesor_form
+from App1.forms import Profesor_form, Alumno_form
 
 # Create your views here.
 
@@ -38,17 +38,21 @@ def alumnos(request):
     }
     return render(request, 'App1/alumnos.html',context_dict)
 
+#-----------------------------FORMULARIOS-----------------------------------------------------------------
+
 def profesor_forms_django(request):
     if request.method == 'POST':
+
         profesor_form = Profesor_form(request.POST)
+        
 
         if profesor_form.is_valid():
             data = profesor_form.cleaned_data
 
             profesor = Profesor(
-                name=data['Nombre'],
-                #born=data['Nacimiento'],
-                email=data['Email'],
+                name=data["name"],
+                born=data['born'],
+                email=data['email'],
             )
             profesor.save()
 
@@ -71,3 +75,42 @@ def profesor_forms_django(request):
     context=context_dict,
     template_name='App1/profesores_form.html'
     )
+
+def alumno_forms_django(request):
+    if request.method == 'POST':
+
+        alumno_form = Alumno_form(request.POST)
+        
+
+        if alumno_form.is_valid():
+            data = alumno_form.cleaned_data
+
+            alumno = Alumno(
+                name=data["name"],
+                born=data['born'],
+                email=data['email'],
+            )
+            alumno.save()
+
+            alumnos = Alumno.objects.all()
+            context_dict = {
+                'alumnos': alumnos
+            }
+            return render(
+                request=request,
+                context=context_dict,
+                template_name="App1/alumnos.html"
+            )
+
+    alumno_form = Alumno_form(request.POST)
+    context_dict = {
+        'alumno_form': alumno_form
+    }
+    return render(
+    request=request,
+    context=context_dict,
+    template_name='App1/alumnos_form.html'
+    )
+
+
+    #-------------------------------------BUSQUEDAS------------------------------------------------------------
