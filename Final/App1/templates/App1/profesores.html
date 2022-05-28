@@ -3,7 +3,7 @@
 {% block contenidoQueCambia %}
 
 <h2>Lista de Profesores</h2>
-<a class="card_custom" href="#!">Crear nuevo Profesor</a>
+<a class="card_custom" href="{% url 'Profesores_form' %}">Crear nuevo Profesor</a>
 <br></br>
 <a class="card_custom" href="#!">Buscar Profesor</a>
 <hr></hr>
@@ -15,5 +15,5 @@
         </li>
     {% endfor %}
 </ul>
-
+<hr></hr>
 {% endblock %}

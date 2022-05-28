@@ -1,0 +1,22 @@
+{% extends "App1/index.html" %}
+{% load static %}
+{% block contenidoQueCambia %}
+
+
+<a class="card_custom" href="#!">Volver a lista completa</a>
+<br></br>
+<a class="card_custom" href="#!">Buscar Profesor</a>
+<hr></hr>
+
+<h2>Formulario para insersión de un nuevo profesor</h2>
+
+<form action="" method="POST">
+    {% csrf_token %}
+
+    {{ profesor_form.as_p }}
+
+    <input type="submit" class="btn btn-primary" value="Crear profesor" />
+
+</form>
+<hr></hr>
+{% endblock %}
