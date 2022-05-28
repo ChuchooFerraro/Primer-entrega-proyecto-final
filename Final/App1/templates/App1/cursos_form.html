@@ -1,0 +1,22 @@
+{% extends "App1/index.html" %}
+{% load static %}
+{% block contenidoQueCambia %}
+
+
+<a class="card_custom" href="#!">Volver a lista completa</a>
+<br></br>
+<a class="card_custom" href="#!">Buscar Curso</a>
+<hr></hr>
+
+<h2>Formulario para insersión de un nuevo curso</h2>
+
+<form action="" method="POST">
+    {% csrf_token %}
+
+    {{ curso_form.as_p }}
+
+    <input type="submit" class="btn btn-primary" value="Crear Curso" />
+
+</form>
+<hr></hr>
+{% endblock %}

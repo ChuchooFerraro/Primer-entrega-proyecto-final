@@ -26,4 +26,5 @@ urlpatterns = [
     path('alumnos/', views.alumnos, name ='Alumnos'),
     path('profesores_form/', views.profesor_forms_django, name ='Profesores_form'),
     path('alumnos_form/', views.alumno_forms_django, name ='Alumnos_form'),
+    path('cursos_form/', views.curso_forms_django, name ='Cursos_form'),
 ]
