@@ -20,9 +20,10 @@ from App1 import views
 
 
 urlpatterns = [
-    path('fecha/', views.fechaa),
-    path('azul/', views.azul),
     path('', views.start_boostrap, name='Home'),
-    path('form/', views.formulario),
     path('profesores/', views.profesores, name ='Profesores'),
+    path('cursos/', views.cursos, name ='Cursos'),
+    path('alumnos/', views.alumnos, name ='Alumnos'),
+    path('profesores_form/', views.profesor_forms_django, name ='Profesores_form'),
+    path('alumnos_form/', views.alumno_forms_django, name ='Alumnos_form'),
 ]
