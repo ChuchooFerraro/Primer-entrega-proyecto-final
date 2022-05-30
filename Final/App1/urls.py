@@ -24,7 +24,12 @@ urlpatterns = [
     path('profesores/', views.profesores, name ='Profesores'),
     path('cursos/', views.cursos, name ='Cursos'),
     path('alumnos/', views.alumnos, name ='Alumnos'),
+    
+    #Forms
     path('profesores_form/', views.profesor_forms_django, name ='Profesores_form'),
     path('alumnos_form/', views.alumno_forms_django, name ='Alumnos_form'),
     path('cursos_form/', views.curso_forms_django, name ='Cursos_form'),
+    
+    #Busqueda
+    path('cursos_search/', views.cursos_search, name ='cursos_search'),
 ]
