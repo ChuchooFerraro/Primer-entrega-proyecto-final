@@ -1,3 +1,4 @@
+import curses
 from django.http import HttpRequest
 from django.shortcuts import render
 from django.http import HttpResponse
@@ -148,3 +149,26 @@ def curso_forms_django(request):
     )
 
     #-------------------------------------BUSQUEDAS------------------------------------------------------------
+
+def search(request):
+    context_dict = dict()
+    if request.GET['text_search']:
+        search_param = request.GET['text_search']
+        courses = Curso.objects.filter(name__contains=search_param)
+        context_dict = {
+            'courses': courses
+        }
+    elif request.GET['code_search']:
+        search_param = request.GET['code_search']
+        courses = courses.objects.filter(code__contains=search_param)
+        context_dict = {
+            'courses': courses
+        }
+    elif request.GET['all_search']:
+        search_param = request.GET['all_search']
+        query = Q(name__contains=search_param)
+        query.add(Q(code__contains=search_param), Q.OR)
+        courses = Curso.objects.filter(query)
+        context_dict = {
+            'courses': courses
+        }

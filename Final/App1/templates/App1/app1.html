@@ -1,12 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    Primer vista
-</body>
-</html>
+{% extends "App1/index.html" %}
+{% load static %}
+{% block app_coder_content %}
+
+<h2>Buscador de cursos</h2>
+<hr></hr>
+
+<form action="/cursos_search" method="GET">
+    <div>
+        <input type="text" name="text_search" id="course_name" placeholder="Busqueda por nommbre">
+        <input type="submit" value="Buscar por Nombre">
+    </div>
+    <div>
+        <input type="number" name="code_search" id="course_code" placeholder="Busqueda por camada">
+        <input type="submit" value="Buscar por camada">
+    </div>
+    <div>
+        <input type="text" name="all_search" id="course_code_or_name" placeholder="Busqueda general">
+        <input type="submit" value="Buscar">
+    </div>
+
+</form>
+
+<hr></hr>
+
+{% if courses %}
+    <ul>
+        {% for course in courses %}
+            <li>
+                Curso: {{course.name}}
+                -- Camada: {{course.code}}
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+{% endblock %}
