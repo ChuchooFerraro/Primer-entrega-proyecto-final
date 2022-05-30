@@ -1,0 +1,28 @@
+{% extends "App1/index.html" %}
+{% load static %}
+{% block contenidoQueCambia %}
+
+<h2>Buscador de cursos</h2>
+<hr></hr>
+
+<form action="/cursos_search/" method="GET">
+    <div>
+        <input type="text" name="all_search" id="course_code_or_name" placeholder="Busqueda general">
+        <input type="submit" value="Buscar">
+    </div>
+
+</form>
+
+
+{% if courses %}
+    <ul>
+        {% for course in courses %}
+            <li>
+                Curso: {{course.curso}}
+                -- Camada: {{course.camada}}
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+{% endblock %}

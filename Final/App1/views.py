@@ -7,6 +7,8 @@ from App1.models import Curso
 from App1.models import Profesor
 from App1.models import Alumno
 from App1.forms import Profesor_form, Alumno_form, Curso_form
+from django.db.models import Q
+
 
 # Create your views here.
 
@@ -148,3 +150,22 @@ def curso_forms_django(request):
     )
 
     #-------------------------------------BUSQUEDAS------------------------------------------------------------
+
+def cursos_search(request):
+
+    context_dict = dict()
+    if request.GET["all_search"]:
+        search_param = request.GET["all_search"]
+        query = Q(curso__contains=search_param)
+        query.add(Q(camada__contains=search_param), Q.OR)
+        cursos = Curso.objects.filter(query)
+        
+        context_dict = {
+            'courses': cursos
+        }
+
+    return render(
+        request=request,
+        context=context_dict,
+        template_name="App1/cursos_search.html",
+    )
