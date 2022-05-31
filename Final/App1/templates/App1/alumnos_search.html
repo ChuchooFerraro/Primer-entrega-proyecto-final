@@ -2,12 +2,12 @@
 {% load static %}
 {% block contenidoQueCambia %}
 
-<h2>Buscador de cursos</h2>
+<h2>Buscador de alumnos</h2>
 <hr></hr>
 
-<form action="/App1/cursos_search" method="GET">
+<form action="/alumnos_search/" method="GET">
     <div>
-        <input type="text" name="all_search" id="course_code_or_name" placeholder="Busqueda general">
+        <input type="text" name="all_search1" placeholder="Busqueda general">
         <input type="submit" value="Buscar">
     </div>
 
@@ -15,12 +15,12 @@
 
 <hr></hr>
 
-{% if courses %}
+{% if alumnos %}
     <ul>
-        {% for course in courses %}
+        {% for alumno in alumnos %}
             <li>
-                Curso: {{course.name}}
-                -- Camada: {{course.code}}
+                Alumno: {{alumno.name}}
+               
             </li>
         {% endfor %}
     </ul>

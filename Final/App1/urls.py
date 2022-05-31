@@ -32,4 +32,6 @@ urlpatterns = [
     
     #Busqueda
     path('cursos_search/', views.cursos_search, name ='cursos_search'),
+    path('alumnos_search/', views.alumnos_search, name ='alumnos_search'),
+    path('profesores_search/', views.profesores_search, name ='profesores_search'),
 ]

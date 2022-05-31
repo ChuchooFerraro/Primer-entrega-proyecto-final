@@ -169,3 +169,41 @@ def cursos_search(request):
         context=context_dict,
         template_name="App1/cursos_search.html",
     )
+
+def alumnos_search(request):
+    
+    context_dict = dict()
+    if request.GET["all_search1"]:
+        search_param = request.GET["all_search1"]
+        query = Q(name__contains=search_param)
+        #query.add(Q(camada__contains=search_param), Q.OR)
+        alumnos = Alumno.objects.filter(query)
+        
+        context_dict = {
+            'alumnos': alumnos
+        }
+
+    return render(
+        request=request,
+        context=context_dict,
+        template_name="App1/alumnos_search.html",
+    )   
+
+def profesores_search(request):
+    
+    context_dict = dict()
+    if request.GET["all_search2"]:
+        search_param = request.GET["all_search2"]
+        query = Q(name__contains=search_param)
+        #query.add(Q(camada__contains=search_param), Q.OR)
+        profesores = Profesor.objects.filter(query)
+        
+        context_dict = {
+            'profesores': profesores
+        }
+
+    return render(
+        request=request,
+        context=context_dict,
+        template_name="App1/profesores_search.html",
+    )       

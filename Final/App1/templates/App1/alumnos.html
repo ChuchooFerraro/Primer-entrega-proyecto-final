@@ -2,12 +2,12 @@
 {% load static %}
 {% block contenidoQueCambia %}
 
-<h2>Lista de Profesores</h2>
+<h2>Lista de Alumnos</h2>
 <a class="card_custom" href="{% url 'Alumnos_form' %}">Crear nuevo Alumno</a>
 <br></br>
-<form action="/cursos_search/" method="GET">
+<form action="/alumnos_search/" method="GET">
     <div>
-        <input type="text" name="all_search" id="course_code_or_name" placeholder="Busqueda general">
+        <input type="text" name="all_search1" id="course_code_or_name" placeholder="Busqueda general">
         <input type="submit" value="Buscar">
     </div>
 

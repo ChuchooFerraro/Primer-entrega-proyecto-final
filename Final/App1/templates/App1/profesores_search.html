@@ -1,0 +1,31 @@
+{% extends "App1/index.html" %}
+{% load static %}
+{% block contenidoQueCambia %}
+
+<h2>Buscador de profesores</h2>
+<hr></hr>
+
+<form action="/profesores_search/" method="GET">
+    <div>
+        <input type="text" name="all_search2" placeholder="Busqueda general">
+        <input type="submit" value="Buscar">
+    </div>
+
+</form>
+
+<hr></hr>
+
+{% if profesores %}
+    <ul>
+        {% for profesor in profesores %}
+            <li>
+                Profesor: {{profesor.name}}
+                --- Nacimiento: {{profesor.born}}
+                --- Email: {{profesor.email}}
+               
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+{% endblock %}
