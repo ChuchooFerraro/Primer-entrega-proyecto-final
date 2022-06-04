@@ -5,7 +5,7 @@
 git clone https://github.com/ChuchooFerraro/Primer-entrega-proyecto-final.git
 cd django-coderhouse-project
 
-git checkout class_21
+git checkout develop_chucho
 
 ```
 
